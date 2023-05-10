@@ -19,11 +19,15 @@
   },
   "homepage": "https://github.com/Lakei87/react-phonebook-backend#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^7.1.0"
+    "http-errors": "^2.0.0",
+    "joi": "^17.9.2",
+    "mongoose": "^7.1.0",
+    "nanoid": "^3.3.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
