@@ -7,10 +7,13 @@ const { schemas } = require('../../models/user');
 const router = express.Router();
 
 router.post('/signup',
-    validateBody(schemas.signupAndLoginSchema),
+    validateBody(schemas.signupSchema),
     signup);
 
-router.post('/login', login);
+router.post('/login',
+    validateBody(schemas.loginSchema),
+    login);
+    
 router.post('/logout');
 router.get('/current');
 

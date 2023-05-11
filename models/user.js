@@ -35,14 +35,20 @@ const userSchema = new Schema(
 );
 
 // Joi schemas
-const signupAndLoginSchema = Joi.object({
+const signupSchema = Joi.object({
     password: Joi.string().min(7).max(20).required(),
     email: Joi.string().pattern(emailRegexp).required(),
     name: Joi.string().required(),
 });
 
+const loginSchema = Joi.object({
+    password: Joi.string().min(7).max(20).required(),
+    email: Joi.string().pattern(emailRegexp).required(),
+})
+
 const schemas = {
-    signupAndLoginSchema,
+    signupSchema,
+    loginSchema,
 };
 
 const User = model("users", userSchema);
