@@ -3,8 +3,7 @@ const { nanoid } = require('nanoid');
 const createError = require('http-errors');
 
 const { User } = require('../../models/user');
-const { sgMail } = require('../../helpers');
-const sendEmail = require('../../helpers/sendEmail');
+const { sendEmail } = require('../../helpers');
 
 const signup = async (req, res) => {
     const { email, password } = req.body;

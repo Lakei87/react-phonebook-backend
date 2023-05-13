@@ -1,7 +1,7 @@
-const sgMail = require('./sendEmail');
+const sendEmail = require('./sendEmail');
 const ctrlWrapper = require('./ctrlWrapper');
 
 module.exports = {
-    sgMail,
+    sendEmail,
     ctrlWrapper,
 };

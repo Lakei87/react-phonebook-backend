@@ -12,7 +12,7 @@ const verificationToken = async (req, res) => {
     await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: "" });
 
     res.json({
-        message: "Verification successful"
+        message: "Verification successful. Please login."
     });
 };
 
