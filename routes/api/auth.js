@@ -4,8 +4,9 @@ const {
     signup,
     login,
     verificationToken,
-    reverificationToken } = require('../../controllers/auth');
-const { validateBody } = require('../../middlewares');
+    reverificationToken,
+    logout } = require('../../controllers/auth');
+const { validateBody, authenticate } = require('../../middlewares');
 const { ctrlWrapper } = require('../../helpers');
 const { schemas } = require('../../models/user');
 
@@ -26,7 +27,10 @@ router.post('/verify',
     validateBody(schemas.reverificationTokenSchema),
     ctrlWrapper(reverificationToken));
 
-router.post('/logout');
+router.post('/logout',
+    authenticate,
+    ctrlWrapper(logout));
+    
 router.get('/current');
 
 module.exports = router;
