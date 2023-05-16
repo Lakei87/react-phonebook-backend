@@ -44,11 +44,16 @@ const signupSchema = Joi.object({
 const loginSchema = Joi.object({
     password: Joi.string().min(7).max(20).required(),
     email: Joi.string().pattern(emailRegexp).required(),
-})
+});
+
+const reverificationTokenSchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+});
 
 const schemas = {
     signupSchema,
     loginSchema,
+    reverificationTokenSchema,
 };
 
 const User = model("users", userSchema);
