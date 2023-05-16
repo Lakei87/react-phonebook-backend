@@ -10,6 +10,7 @@ const contactSchema = new Schema(
         },
         phone: {
             type: String,
+            required: [true, 'Phone is required']
         },
         owner: {
             type: Schema.Types.ObjectId,

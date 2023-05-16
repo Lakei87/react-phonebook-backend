@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
             { skip, limit })
         .populate("owner", "_id, email");
 
-    res.json((result.length === 0 ? "Your contactList is empty" : result));
+    res.json(result);
 };
 
 module.exports = getAll;
