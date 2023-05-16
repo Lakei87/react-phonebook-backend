@@ -5,7 +5,8 @@ const {
     login,
     verificationToken,
     reverificationToken,
-    logout } = require('../../controllers/auth');
+    logout,
+    current } = require('../../controllers/auth');
 const { validateBody, authenticate } = require('../../middlewares');
 const { ctrlWrapper } = require('../../helpers');
 const { schemas } = require('../../models/user');
@@ -30,7 +31,9 @@ router.post('/verify',
 router.post('/logout',
     authenticate,
     ctrlWrapper(logout));
-    
-router.get('/current');
+
+router.get('/current',
+    authenticate,
+    ctrlWrapper(current));
 
 module.exports = router;

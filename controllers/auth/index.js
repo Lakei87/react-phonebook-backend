@@ -3,6 +3,7 @@ const login = require('./login');
 const verificationToken = require('./verificationToken');
 const reverificationToken = require('./reverificationToken');
 const logout = require('./logout');
+const current = require('./current');
 
 module.exports = {
     signup,
@@ -10,4 +11,5 @@ module.exports = {
     verificationToken,
     reverificationToken,
     logout,
+    current,
 };
