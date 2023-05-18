@@ -56,7 +56,7 @@ const schemas = {
     reverificationTokenSchema,
 };
 
-const User = model("users", userSchema);
+const User = model("user", userSchema);
 module.exports = {
     User,
     schemas,

@@ -7,10 +7,10 @@ const reverificationToken = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-        createError(404, "User not found");
+        throw createError(404, "User not found");
     };
     if (user.verify) {
-        createError(400, "Verification has already been passed");
+        throw createError(400, "Verification has already been passed");
     };
 
     const msg = {
