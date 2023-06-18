@@ -9,9 +9,12 @@ const signup = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    if (user) {
+    if (user && user.verify) {
         throw createError(409, "Email in use");
-    };
+    }
+    if (user && !user.verify) {
+        throw createError(409, "Email in use. Please comfirm your e-mail address, please.")
+    }
 
     const hashPassword = await bcrypt.hash(password, 10);
     const verificationToken = nanoid();
@@ -31,7 +34,10 @@ const signup = async (req, res) => {
     await sendEmail(msg);
 
     res.status(201).json({
-        email: newUser.email
+        user: {
+            name: newUser.name,
+            email: newUser.email,
+        }
     });
 
 };
