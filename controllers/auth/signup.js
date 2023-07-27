@@ -27,8 +27,14 @@ const signup = async (req, res) => {
 
     const msg = {
         to: email,
-        subject: 'Registration',
-        html: `<a target="_blank" href='https://react-phonebook-backend.onrender.com/api/auth/verify/${verificationToken}'>Please, confirm your email address</a>`,
+        subject: 'Confirm your email address',
+        html: `<h2>Verify your e-mail to finish signing up for PhoneBook</h2>
+
+        <p>Thank you for choosing PhoneBook</p>
+
+        <p>Please confirm that ${email} is your e-mail address by clicking on this link
+            <a target="_blank" href='https://react-phonebook-backend.onrender.com/api/auth/verify/${verificationToken}'>https://react-phonebook-backend.onrender.com/api/auth/verify/${verificationToken}</a>
+        </p>`,
     };
 
     await sendEmail(msg);
