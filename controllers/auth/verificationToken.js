@@ -3,16 +3,16 @@ const createError = require('http-errors');
 
 const verificationToken = async (req, res) => {
     const { verificationToken } = req.params;
-    const user = await User.findOne({ verificationToken });
+    const findedUser = await User.findOne({ verificationToken });
     
-    if (!user) {
+    if (!findedUser) {
         throw createError(404, "User not found");
     };
 
-    await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: "" });
-
+    const verifiedUser = await User.findByIdAndUpdate(findedUser._id, { verify: true, verificationToken: "" }, {new: true});
     res.json({
-        message: "Verification successful. Please login."
+        message: "Verification successful. Please login.",
+        verifiedUser,
     });
 };
 

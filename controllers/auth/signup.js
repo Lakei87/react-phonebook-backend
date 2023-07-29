@@ -33,7 +33,7 @@ const signup = async (req, res) => {
         <p>Thank you for choosing PhoneBook</p>
 
         <p>Please confirm that ${email} is your e-mail address by clicking on this link
-            <a target="_blank" href='https://react-phonebook-backend.onrender.com/api/auth/verify/${verificationToken}'>https://react-phonebook-backend.onrender.com/api/auth/verify/${verificationToken}</a>
+            <a target="_blank" href='https://lakei87.github.io/goit-react-hw-08-phonebook/register/${verificationToken}'>https://lakei87.github.io/goit-react-hw-08-phonebook/register/${verificationToken}</a>
         </p>`,
     };
 
